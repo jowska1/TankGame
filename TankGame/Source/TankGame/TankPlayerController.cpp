@@ -3,7 +3,7 @@
 
 #include "TankPlayerController.h"
 
-ATank* ATankPlayerController::GetControlledTank() const
+ATank* ATankPlayerController::GetPlayerControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
 }
@@ -11,7 +11,7 @@ ATank* ATankPlayerController::GetControlledTank() const
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-	auto ControlledTank = GetControlledTank();
+	auto ControlledTank = GetPlayerControlledTank();
 	if (!ControlledTank)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PlayerController can't find tank"))

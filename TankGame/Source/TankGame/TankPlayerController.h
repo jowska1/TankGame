@@ -16,13 +16,15 @@ class TANKGAME_API ATankPlayerController : public APlayerController
 	GENERATED_BODY()
 
 public:
-	ATank* GetPlayerControlledTank() const;
-
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaTime) override;
 
+	ATank* GetPlayerControlledTank() const;
+
 	void AimTowardsCrosshair();
+
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 
 private:
 	bool GetSightRayHitLocation(FVector& OurHitLocation) const;
